@@ -7,7 +7,7 @@
 <ul>
 {% for post in posts %}
     {% if post.title %}
-    <li><a href="{{ post.url  }}" title="{{ post.title }}">{{ post.title }}</a></li>
+    <li><a href="{{ post.url | prepend: site.baseurl | uri_escape | xml_escape  }}" title="{{ post.title }}">{{ post.title }}</a></li>
     {% endif %}
 {% endfor %}
 </ul>
