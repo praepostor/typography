@@ -1,0 +1,8 @@
+---
+---
+{% capture cache %}
+  {% capture url %}{{ site.url }}{{ site.baseurl }}{% endcapture %}
+{% endcapture %}{% assign cache = nil %}User-agent: *
+Disallow: /css/
+Disallow: /js/
+Sitemap: {{ '/sitemap.xml' | prepend: url | uri_escape | xml_escape }}

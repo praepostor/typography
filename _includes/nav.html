@@ -1,0 +1,13 @@
+
+
+
+
+{% assign posts = site.posts | where: 'lang', page.lang %}
+Посты
+<ul>
+{% for post in posts %}
+    {% if post.title %}
+    <li><a href="{{ post.url  }}" title="{{ post.title }}">{{ post.title }}</a></li>
+    {% endif %}
+{% endfor %}
+</ul>
