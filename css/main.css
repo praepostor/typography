@@ -7,6 +7,8 @@
  * @copyright 2015 Sergey Karavaev
  * @license The MIT license
  */
+ 
+@import url(http://fonts.googleapis.com/css?family=Old+Standard+TT);
 
 @font-face {
     font-family: MySerif;
@@ -43,7 +45,7 @@ address {
 body {
     background-color: #fff;
     color: #555;
-    font-family: MySerif, serif;
+    font-family: "Old Standard TT", serif;
     font-size: 1em; /* 14 Russian points */
     height: 100%;
     line-height: 1.5;
