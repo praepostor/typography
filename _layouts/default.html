@@ -40,7 +40,7 @@
     <div>
       <a href="{{ site.baseurl | uri_escape | escape }}/">{{ site.title | escape }}</a>
       <ul>{% for home in site.home %}
-    <li><a href="{{ home[1].url }}">{{ home[1].title }}</a>
+    <li><a href="{{ home[1].url | prepend: site.baseurl | uri_escape | xml_escape }}">{{ home[1].title | escape }}</a>
   {% endfor %}</ul>
     </div>
     <nav role="navigation">{% include nav.html %}</nav>
