@@ -13,9 +13,17 @@
     /* https://everythingfonts.com */
     src:
         /* Modern IE */
-        url("Old Standard TT Regular"),
-        url("OldStandardTT-Regular"),
-        url(https://fonts.gstatic.com/s/oldstandardtt/v7/n6RTCDcIPWSE8UNBa4k-DG75SyxP8F_Nt1CRRMel2UU.woff2) format("woff");
+        url("fonts/LiberationSerif.eot?#fix") format("embedded-opentype"),
+        local(LiberationSerif),
+        /* Modern browsers only */
+        url(fonts/LiberationSerif.woff2) format("woff"),
+        /* IE 9+ and others */
+        url(fonts/LiberationSerif.woff) format("woff"),
+        /* IE 9+ (partially) and others */
+        url(fonts/LiberationSerif.otf) format("opentype"),
+        url(fonts/LiberationSerif.ttf) format("truetype"),
+        /* Safari, WebView, Chrome 38+ on Windows XP and Vista only */
+        url(fonts/LiberationSerif.svg#LiberationSerif) format("svg");
 }
 
 a {
