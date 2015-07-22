@@ -1,60 +1,50 @@
 {% capture cache %}
   {% assign author = site.data.people[page.author] %}
-  {% capture urn %}{{ site.baseurl | uri_escape | xml_escape }}{% endcapture %}
+  {% capture baseurl %}{{ site.baseurl }}{% endcapture %}
+  {% capture url %}{{ site.url }}{% endcapture %}
 {% endcapture %}{% assign cache = nil %}<!DOCTYPE html>
-<html lang="{{ page.lang | xml_escape }}">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="HandheldFriendly" content="true">
-<meta name="MobileOptimized" content="width">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes">
-{% capture title %}
-{% if page.title %}
-{{ page.title }}
-{% if site.title %}
-|
-{% endif %}
-{% endif %}
-{% if site.title %}
-{{ site.title }}
-{% endif %}
-{% endcapture %}<title>{{ title | strip_newlines | xml_escape }}</title>
-<meta name="description" content="{{ page.description | xml_escape }}">
-<link rel="stylesheet" href="{{ '/css/main.css' | prepend: urn }}">
-<!--[if lt IE 9]>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-<![endif]-->
-<script data-main="{{ '/js/init.js' | prepend: urn }}"
-        defer
-        src="{{ '/js/requirejs/require.js' | prepend: urn }}"></script>
-<link rel="author" href="{{ author.site }}">
-<link rel="canonical"
-      href="{{ page.url | remove: 'index.html' | prepend: uri }}">
-</head>
-<body>
-  <header role="banner">
-    <a href="#main">Главное</a>
-    <div>
-      <a href="{{ site.baseurl | uri_escape | escape }}/">{{ site.title | escape }}</a>
-      <ul>{% for home in site.home %}
-    <li><a href="{{ home[1].url | prepend: site.baseurl | uri_escape | xml_escape }}">{{ home[1].title | escape }}</a>
-  {% endfor %}</ul>
-    </div>
-    <nav role="navigation">{% include nav.html %}</nav>
-    <nav role="navigation">Переводы: {% include translations.html %}</nav>
-  </header>
-  <main id="main" role="main" tabindex="-1">
-    {{ content | escape_once }}
-    <h2>Комментарии</h2>
-    <section>{% include comments.html %}</section>
-  </main>
-  <footer role="contentinfo">
-    <p>© Караваев С. В., <time datetime="2015">2015</time></p>
-    <p>© Оформление. Караваев С. В., <time datetime="2015">2015</time></p>
-    <p><a href="https://get.adobe.com/reader/otherversions/">Adobe Reader</a>.</p>
-  </footer>
-</body>
+<html lang="{{ page.lang | escape }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="width">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>{% include title.html %}{{ title | strip_newlines | xml_escape }}</title>
+    <meta name="description" content="{{ page.description | escape }}">
+    
+{% for resource in site.data.resources.css %}
+    <link rel="stylesheet" href="{% include urinorm param = resource %}">
+{% endfor %}
+    
+    <!--[if lt IE 9]>
+    <script async src="{{ site.data.resources.js.html5shiv }}"></script>
+    <![endif]-->
+{% for resource in site.data.resources.js.all %}
+    <link rel="stylesheet" href="{% include urinorm param = resource %}">
+{% endfor %}
+
+    <link rel="author" href="{% include uri param = author.site %}">
+    <link rel="canonical" href="{% include self.html %}">
+  </head>
+  <body class="hyphenate">
+    <header role="banner">
+      <div>
+        <a href="{{ urn }}/">{{ site.title | escape }}</a>
+      </div>
+      <nav role="navigation">{% include nav.html %}</nav>
+    </header>
+    <main id="main" role="main" tabindex="1">
+      {{ content | escape_once }}
+      {% include comments.html %}
+    </main>
+    <footer role="contentinfo">
+      <iframe src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" sandbox width="88" height="31" title="Это произведение доступно по лицензии Creative Commons «Attribution­‑NonCommercial­‑NoDerivatives» («Атрибуция ⁠— Некоммерческое использование ⁠— Без производных произведений») 4.0 Всемирная"></iframe>
+      <p>© Караваев С. В., <time datetime="2015">2015</time></p>
+      <p>© Оформление. Караваев С. В., <time datetime="2015">2015</time></p>
+      <p><a href="https://get.adobe.com/reader/otherversions/">Adobe Reader</a>.</p>
+    </footer>
+  </body>
 </html>

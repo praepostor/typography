@@ -1,0 +1,8 @@
+{% capture cache %}
+    {% assign begin = include.param | split: '//' | first %}
+    {% if begin == resource %}
+        {% capture temp %}{{ resource | prepend: site.baseurl }}{% endcapture %}
+    {% else %}
+        {% assign temp = resource %}
+    {% endif %}
+{% endcapture %}{% assign cache = nil %}{{ temp | uri_escape | xml_escape }}

@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+/**
+ * Basic
+ *
+ * @version 1.0.0
+ * @author Sergey Karavaev
+ * @copyright 2015 Sergey Karavaev
+ * @license The MIT license
+ */
+
+@import "base/reset";
+@import "helpers/variables";
+
+@import "base/typography";
+
+@import "layout/footer";
+
+@import "themes/theme";

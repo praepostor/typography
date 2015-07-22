@@ -1,0 +1,13 @@
+@import "helpers/functions";
+
+/* Colors */
+$color-black:      #000;
+$color-blue-dark:  #069;
+$color-blue-light: #39c;
+$color-gray:       #3f4549;
+$color-white:      #fff;
+
+$font-path: font/VoladoSerif;
+$font-name: extract-filename($font-path);
+
+$prefixes: "-moz-", "-ms-", "-webkit-", "";

@@ -1,0 +1,33 @@
+@import "helpers/mixins";
+
+@media screen and (min-width: 960px) {
+    footer,
+    header {
+        float: right;
+        position: fixed;
+        right: 0;
+        width: 18%;
+    }
+
+    footer p,
+    header p,
+    nav li {
+        text-indent: 0;
+    }
+
+    footer {
+        bottom: 0;
+        z-index: 0;
+    }
+
+    header {
+        top: 0;
+        z-index: 1;
+    }
+
+    main {
+        @include box-shadow(inset -.5em 0 .5em -.5em rgba(96, 96, 96, .5));
+        float: left;
+        width: 78%;
+    }
+}

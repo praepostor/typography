@@ -1,0 +1,41 @@
+@import "helpers/mixins";
+@import "helpers/variables";
+
+@include font-face($font-path, $font-name);
+
+body {
+    font-family: quote($font-name), serif;
+    font-size: 1em;
+    line-height: 1.5;
+    text-align: justify;
+    text-indent: 0;
+}
+
+address,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+p {
+    margin: 0;
+    text-indent: .9024cm;
+}
+
+ol,
+ul {
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+ul {
+    list-style-type: disc;
+}

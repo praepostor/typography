@@ -1,0 +1,11 @@
+{% capture title %}
+{% if page.title %}
+{{ page.title }}
+{% if site.title %}
+|
+{% endif %}
+{% endif %}
+{% if site.title %}
+{{ site.title }}
+{% endif %}
+{% endcapture %}

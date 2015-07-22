@@ -1,0 +1,18 @@
+@mixin footer($height) {
+    body {
+        margin: 0 0 $height 0;
+    }
+
+    footer {
+        bottom: 0;
+        height: $height;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
+
+    html {
+        min-height: 100%;
+        position: relative;
+    }
+}

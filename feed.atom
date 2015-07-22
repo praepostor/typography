@@ -1,10 +1,8 @@
 ---
-layout: null
+layout: minimizer
 ---
-{% capture cache %}
-  {% assign author = site.data.people[page.author] %}
-  {% capture url %}{{ site.url }}{{ site.baseurl }}{% endcapture %}
-{% endcapture %}{% assign cache = nil %}<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+{% capture url %}{{ site.url }}{{ site.baseurl }}{% endcapture %}
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>urn:uuid:{{ site.uuid | uri_escape | xml_escape }}</id>
   <link rel="self"
@@ -13,9 +11,10 @@ layout: null
   <title type="html">{{ site.title | xml_escape }}</title>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
 {% for post in site.posts %}
-{% capture lang %}{{ post.lang | xml_escape }}{% endcapture %}
+  {% assign author = site.data.people[post.author] %}
+  {% capture lang %}{{ post.lang | xml_escape }}{% endcapture %}
   <entry>
-    <author>
+      <author>
       <email>{{ author.email | uri_escape | xml_escape }}</email>
       <name xml:lang="{{ lang }}">{{ author.name[lang] | xml_escape }}</name>
       <uri>{{ author.site | uri_escape | xml_escape }}</uri>
@@ -27,7 +26,7 @@ layout: null
            xml:lang="{{ lang }}">{{ post.title | xml_escape }}</title>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <content type="html" xml:lang="{{ lang }}">
-      {{ post.content | strip_newlines | xml_escape }}
+      {{ post.content | xml_escape }}
     </content>
   </entry>
 {% endfor %}

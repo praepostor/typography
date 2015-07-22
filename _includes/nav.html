@@ -1,10 +1,4 @@
-
-
-
-
-{% assign posts = site.posts | where: 'lang', page.lang %}
-Посты
-<ul>
+{% assign posts = site.posts %}<ul>
 {% for post in posts %}
     {% if post.title %}
     <li><a href="{{ post.url | prepend: site.baseurl | uri_escape | xml_escape  }}" title="{{ post.title }}">{{ post.title }}</a></li>
