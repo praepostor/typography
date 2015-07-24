@@ -19,12 +19,16 @@
     <link rel="stylesheet" href="{% include urinorm param = resource %}">
 {% endfor %}
     
+    <!--[if lt IE 9]>
+    <script async src="{{ site.data.resources.js.html5shiv }}"></script>
+    <![endif]-->
 
 
     <link rel="author" href="{% include uri param = author.site %}">
     <link rel="canonical" href="{% include self.html %}">
   </head>
   <body class="hyphenate">
+  {{ site.github }}
     <header role="banner">
       <div>
         <a href="{{ urn }}/">{{ site.title | escape }}</a>
@@ -41,11 +45,9 @@
       <p>© Оформление. Караваев С. В., <time datetime="2015">2015</time></p>
       <p><a href="https://get.adobe.com/reader/otherversions/">Adobe Reader</a>.</p>
     </footer>
-        <!--[if lt IE 9]>
-    <script async src="{{ site.data.resources.js.html5shiv }}"></script>
-    <![endif]-->
-{% for resource in site.data.resources.js.all %}
+    
+    {% for resource in site.data.resources.js.all %}
     <script defer src="{% include urinorm param = resource %}"></script>
-{% endfor %}
+    {% endfor %}
   </body>
 </html>
