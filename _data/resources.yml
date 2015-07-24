@@ -5,4 +5,4 @@ js:
     all: 
         - https://a.disquscdn.com/embed.js
         - https://cdn.rawgit.com/mnater/Hyphenator/f0f1b5be631cccd91797ca62ec2ac19c27f0ffda/Hyphenator.js
-        - /js/init.js
+        - /js/init.min.js

@@ -23,7 +23,7 @@
     <script async src="{{ site.data.resources.js.html5shiv }}"></script>
     <![endif]-->
 {% for resource in site.data.resources.js.all %}
-    <link rel="stylesheet" href="{% include urinorm param = resource %}">
+    <script defer src="{% include urinorm param = resource %}"></script>
 {% endfor %}
 
     <link rel="author" href="{% include uri param = author.site %}">
