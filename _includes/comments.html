@@ -2,12 +2,11 @@
   <h2>Комментарии</h2>
   <div id="disqus_thread"></div>
   <script>
-    var disqus_identifier = "typography/{{ page.url | split: '/' | last }}",
-        disqus_shortname = "{{ disqus.shortname }}",
+    var disqus_category_id = "{{ site.data.disqus.category_id }}",
+        disqus_identifier = "typography/{{ page.url | split: '/' | last }}",
+        disqus_shortname = "{{ site.data.disqus.shortname }}",
         disqus_title = "LOLOLO",
         disqus_url = "{% include self %}";
-
-
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
