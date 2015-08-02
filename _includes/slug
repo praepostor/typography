@@ -1,1 +1,1 @@
-{{ page.url | split: '/' | last | uri_escape | xml_escape }}
+{{ page.url | split: '/' | last | url_escape | xml_escape }}
