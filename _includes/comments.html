@@ -3,16 +3,19 @@
   <div id="disqus_thread"></div>
   <script>(function () {
     "use strict";
-    var disqus_category_id = "{{ site.data.disqus.category_id }}",
-        disqus_identifier = "slash7777771",
-        disqus_shortname = "{{ site.data.disqus.shortname }}", // Required
-        disqus_title = "so{{ page.url | split: '/' | last }}oka",
+disqus_category_id = "{{ site.data.disqus.category_id }}";
+        disqus_identifier = "slash7777771";
+        disqus_shortname = "{{ site.data.disqus.shortname }}"; // Required
+        disqus_title = "sooka";
         //disqus_url = "{% include self %}",
-        disqus_url = "{{ site.baseurl | prepend: site.url | uri_escape | xml_escape }}/#!" + "slash7777771",
+        disqus_url = "{{ site.baseurl | prepend: site.url | uri_escape | xml_escape }}/#!" + "slash7777771";
         parent = (document.getElementsByTagName("head")[0] ||
-                document.getElementsByTagName("body")[0]),
+                document.getElementsByTagName("body")[0]);
         script = document.createElement("script");
         script.async = true;
+        
+        
+        
         script.src = "https://" + disqus_shortname + ".disqus.com/embed.js";
         parent.appendChild(script);
         console.log(DISQUS);
