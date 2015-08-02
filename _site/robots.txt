@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /typography/css/
+Disallow: /typography/js/
+Sitemap: https://praepostor.github.io/typography/sitemap.xml
