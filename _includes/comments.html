@@ -1,14 +1,13 @@
 <section>
   <h2>Комментарии</h2>
   <div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: THIS CODE IS ONLY AN EXAMPLE * * */
-    var disqus_shortname = 'karavaykaravay'; // Required - Replace example with your forum shortname
-    var disqus_identifier = 'aaa';
+  <script>
+    var disqus_identifier = "typography/{{ page.url | split: '/' | last }}",
+        disqus_shortname = "{{ disqus.shortname }}",
+        disqus_title = "LOLOLO",
+        disqus_url = "{% include self %}";
 
-    var disqus_url = "{% include self %}";
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
