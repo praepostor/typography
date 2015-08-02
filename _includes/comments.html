@@ -3,9 +3,9 @@
   <div id="disqus_thread"></div>
   <script>
     var disqus_category_id = "{{ site.data.disqus.category_id }}",
-        disqus_identifier = "typography/{{ page.url | split: '/' | last }}",
+        disqus_identifier = "typography/{% include slug %}",
         disqus_shortname = "{{ site.data.disqus.shortname }}",
-        disqus_title = "emmmm-dd dddasss shhhh",
+        disqus_title = "{% include slug %}",
         disqus_url = "{% include self %}";
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -15,5 +15,5 @@
 </script>
 </section>
 <noscript>
-  <p><a href="https://disqus.com/home/discussion/{{ site.data.disqus.shortname }}{{ page.url }}">это</a>.</p>
+  <p><a href="https://disqus.com/home/discussion/{{ site.data.disqus.shortname }}{% include slug %}">это</a>.</p>
 </noscript>
