@@ -2,6 +2,7 @@
   {% assign author = site.data.people[page.author] %}
   {% capture baseurl %}{{ site.baseurl }}{% endcapture %}
   {% capture url %}{{ site.url }}{% endcapture %}
+  {% include title %}
 {% endcapture %}{% assign cache = nil %}<!DOCTYPE html>
 <html lang="{{ page.lang | escape }}">
   <head>
@@ -12,7 +13,7 @@
     <meta name="MobileOptimized" content="width">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>{% include title.html %}{{ title | strip_newlines | xml_escape }}</title>
+    <title>{{ title | strip_newlines | xml_escape }}</title>
     <meta name="description" content="{{ page.description | escape }}">
     
 {% for resource in site.data.resources.css %}
@@ -25,10 +26,9 @@
 
 
     <link rel="author" href="{% include uri param = author.site %}">
-    <link rel="canonical" href="{% include self.html %}">
+    <link rel="canonical" href="{% include self %}">
   </head>
   <body class="hyphenate">
-  {{ site }}
     <header role="banner">
       <div>
         <a href="{{ urn }}/">{{ site.title | escape }}</a>
@@ -40,10 +40,9 @@
       {% include comments.html %}
     </main>
     <footer role="contentinfo">
-      <iframe src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" sandbox width="88" height="31" title="Это произведение доступно по лицензии Creative Commons «Attribution­‑NonCommercial­‑NoDerivatives» («Атрибуция ⁠— Некоммерческое использование ⁠— Без производных произведений») 4.0 Всемирная"></iframe>
+
       <p>© Караваев С. В., <time datetime="2015">2015</time></p>
       <p>© Оформление. Караваев С. В., <time datetime="2015">2015</time></p>
-      <p><a href="https://get.adobe.com/reader/otherversions/">Adobe Reader</a>.</p>
     </footer>
     
     {% for resource in site.data.resources.js.all %}

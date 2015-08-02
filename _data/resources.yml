@@ -2,7 +2,6 @@ css:
     - /css/main.css
 js:
     html5shiv: https://cdn.rawgit.com/aFarkas/html5shiv/7307916eba969964f8b092f5f3ab836f6c4983a6/dist/html5shiv.min.js
-    all: 
-        - https://a.disquscdn.com/embed.js
+    all:
         - https://cdn.rawgit.com/mnater/Hyphenator/f0f1b5be631cccd91797ca62ec2ac19c27f0ffda/Hyphenator.js
         - /js/init.min.js

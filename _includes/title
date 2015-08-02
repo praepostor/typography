@@ -8,4 +8,4 @@
 {% if site.title %}
 {{ site.title }}
 {% endif %}
-{% endcapture %}
+{% endcapture %}{{ title | strip_newlines | xml_escape }}

@@ -1,7 +1,17 @@
 <section>
   <h2>Комментарии</h2>
   <div id="disqus_thread"></div>
+  <script>(function () {
+    "use strict";
+    disqus(
+        "{{ site.data.disqus.shortname }}",
+        "{{ site.data.disqus.category_id }}",
+        "{{ site.baseurl }}{{ page.url | split: '/' | last }}",
+        "{{ page.title }}",
+        "{% include self %}"
+    );
+  }());</script>
 </section>
 <noscript>
-  <p>Включите JavaScript, чтобы увидеть комментарии <a href="https://disqus.com/">Disqus</a>. Сюда нужно добавить <a href="https://disqus.com/home/discussion/karavaykaravay/xxi/">это</a>. Чтобы знать слаг, его нужно назначить: <a href="https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables">https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables</a> и https://help.disqus.com/customer/portal/articles/472099-what-is-a-disqus-identifier-. Вариант <a href="https://disqus.com/embed/comments/?version=455c50ce2852cac3369270ffda878ea0&f=karavaykaravay&t_u=https://praepostor.github.io/typography/ru/en-dash/">другой</a> слишком сложен.</p>
+  <p><a href="https://disqus.com/home/discussion/{{ site.data.disqus.shortname }}{{ page.url }}">это</a>.</p>
 </noscript>
