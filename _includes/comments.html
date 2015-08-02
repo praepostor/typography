@@ -4,16 +4,15 @@
   <script>(function () {
     "use strict";
     var disqus_category_id = "{{ site.data.disqus.category_id }}",
-        disqus_identifier = "{{ page.url | split: '/' | last }}",
+        disqus_identifier = "{{ page.url | split: '/' | last }}123",
         disqus_shortname = "{{ site.data.disqus.shortname }}", // Required
         disqus_title = "{{ page.title }}",
         disqus_url = "{% include self %}",
-        parent = (document.getElementsByTagName("head")[0] ||
-                document.getElementsByTagName("body")[0]),
-        script = document.createElement("script");
-        script.defer = true;
-        script.src = "https://" + disqus_shortname + ".disqus.com/embed.js";
-        parent.appendChild(script);
+(function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
   }());</script>
 </section>
 <noscript>
