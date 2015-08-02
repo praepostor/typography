@@ -6,6 +6,9 @@
     var disqus_category_id = "{{ site.data.disqus.category_id }}",
         disqus_identifier = "slash7777771",
         disqus_shortname = "{{ site.data.disqus.shortname }}", // Required
+        disqus_title = "so{{ page.url | split: '/' | last }}oka",
+        //disqus_url = "{% include self %}",
+        disqus_url = "{{ site.baseurl | prepend: site.url | uri_escape | xml_escape }}/#!" + "slash7777771",
         parent = (document.getElementsByTagName("head")[0] ||
                 document.getElementsByTagName("body")[0]),
         script = document.createElement("script");
