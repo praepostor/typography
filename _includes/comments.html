@@ -15,6 +15,17 @@
         script.async = true;
         script.src = "https://" + disqus_shortname + ".disqus.com/embed.js";
         parent.appendChild(script);
+        console.log(DISQUS);
+        if (typeof DISQUS != 'undefined') {
+            DISQUS.reset({
+                reload: true,
+                config: function () {
+                    this.page.identifier = disqus_identifier;
+                    this.page.url = disqus_url;
+                    this.page.title = disqus_title;
+                }
+            });
+        
   }());</script>
 </section>
 <noscript>
