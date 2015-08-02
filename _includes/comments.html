@@ -4,7 +4,7 @@
   <script>(function () {
     "use strict";
     var disqus_category_id = "{{ site.data.disqus.category_id }}",
-        disqus_identifier = "{{ site.baseurl }}{{ page.url | split: '/' | last }}",
+        disqus_identifier = "{{ page.url | split: '/' | last }}",
         disqus_shortname = "{{ site.data.disqus.shortname }}", // Required
         disqus_title = "{{ page.title }}",
         disqus_url = "{% include self %}",
