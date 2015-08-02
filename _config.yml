@@ -54,6 +54,7 @@ defaults:
       path: ""
       type: "posts"
     values:
+      lang: "ru-RU"
       layout: default
 
 # Markdown Processors
