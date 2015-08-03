@@ -1,6 +1,5 @@
 {% capture cache %}
   {% assign author = site.data.people[page.author] %}
-  {% capture baseurl %}{{ site.baseurl }}{% endcapture %}
   {% capture url %}{{ site.url }}{% endcapture %}
   {% include title %}
 {% endcapture %}{% assign cache = nil %}<!DOCTYPE html>
@@ -27,13 +26,13 @@
     <script defer src="{% include urinorm param = resource %}"></script>
     {% endfor %}
 
-    <link rel="author" href="{% include uri param = author.site %}">
-    <link rel="canonical" href="{% include self %}">
+    <link rel="author" href="{% include urified param = author.site %}">
+    <link rel="canonical" href="{% include uri %}">
   </head>
   <body class="hyphenate">
     <header role="banner">
       <div>
-        <a href="{{ urn }}/">{{ site.title | escape }}</a>
+        <a href="{{ site.baseurl }}/">{{ site.title | escape }}</a>
       </div>
       <nav role="navigation">{% include nav.html %}</nav>
     </header>

@@ -1,8 +1,12 @@
-{% capture cache %}
-    {% assign begin = include.param | split: '//' | first %}
-    {% if begin == resource %}
-        {% capture temp %}{{ resource | prepend: site.baseurl }}{% endcapture %}
-    {% else %}
-        {% assign temp = resource %}
-    {% endif %}
-{% endcapture %}{% assign cache = nil %}{{ temp | uri_escape | xml_escape }}
+{% capture uri %}
+
+{% assign uri = include.param %}
+{% assign scheme = uri | split: '//' | first %}
+
+{% if scheme == uri %}
+{{ site.baseurl }}
+{% endif %}
+
+{{ uri }}
+
+{% endcapture %}{% include urified param = uri %}{% assign uri = nil %}

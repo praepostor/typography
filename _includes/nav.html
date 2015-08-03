@@ -1,7 +1,12 @@
-{% assign posts = site.posts %}<ul>
-{% for post in posts %}
-    {% if post.title %}
-    <li><a href="{{ post.url | prepend: site.baseurl | uri_escape | xml_escape  }}">{{ post.title }}</a></li>
-    {% endif %}
-{% endfor %}
-</ul>
+{% assign posts = site.posts %}
+
+<ul>{% for post in posts %}
+
+{% if post.title %}
+{% capture urn %}
+{{ post.url | prepend: site.baseurl  }}
+{% endcapture %}
+<li><a href="{% include urified param = urn %}">{{ post.title }}</a></li>
+{% endif %}
+
+{% endfor %}</ul>

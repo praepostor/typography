@@ -1,0 +1,3 @@
+{% capture urn %}
+{{ page.url | remove: 'index.html' }}
+{% endcapture %}{% include urified param = urn %}{% assign urn = nil %}

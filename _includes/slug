@@ -1,1 +1,3 @@
-{{ page.url | split: '/' | last | url_escape | xml_escape }}
+{% capture slug %}
+{{ page.url | split: '/' | last }}
+{% endcapture %}{% include urified param = slug %}{% assign slug = nil %}

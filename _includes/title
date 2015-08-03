@@ -1,4 +1,5 @@
 {% capture title %}
+
 {% if page.title %}
 {{ page.title }}
 {% if site.title %}
@@ -8,4 +9,5 @@
 {% if site.title %}
 {{ site.title }}
 {% endif %}
-{% endcapture %}{{ title | strip_newlines | xml_escape }}
+
+{% endcapture %}{{ title | strip_newlines | xml_escape }}{% assign title = nil %}

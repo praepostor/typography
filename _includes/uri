@@ -1,1 +1,3 @@
-{{ include.param | uri_escape | xml_escape }}
+{% capture uri %}
+{% include url %}{% include urn %}
+{% endcapture %}{% include urified param = uri %}{% assign uri = nil %}

@@ -34,8 +34,8 @@ excerpt_separator: "\n\n"
 detach:  false # Detaches the server from the terminal
 port:    4000
 host:    127.0.0.1
-baseurl: "/typography" # Does not include hostname
-#baseurl: "" # Does not include hostname
+#baseurl: "/typography" # Does not include hostname
+baseurl: "" # Does not include hostname.
 
 # Outputting
 permalink:     date
@@ -86,6 +86,6 @@ sass:
 
 # Variables
 title:    "Типографика­‑ⅩⅩⅠ"
-#url:      "http://localhost:4000"
-url:      "https://praepostor.github.io"
+url:      "http://localhost:4000"
+#url:      "https://praepostor.github.io"
 uuid:     "b5eee0e3-51e5-46ad-a7c2-190ecb29a0bd"
