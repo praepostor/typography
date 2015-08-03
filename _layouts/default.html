@@ -13,8 +13,7 @@ layout: minimizer
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="HandheldFriendly" content="true">
     <meta name="MobileOptimized" content="width">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>{% include title %}</title>
     <meta name="description" content="{{ page.description | escape }}">
     
@@ -33,18 +32,17 @@ layout: minimizer
     <link rel="canonical" href="{% include uri %}">
   </head>
   <body class="hyphenate">
-    <header role="banner">
+    <header>
       <div>
         <a href="{{ site.baseurl }}/">{{ site.title | escape }}</a>
       </div>
-      <nav role="navigation">{% include nav.html %}</nav>
+      <nav>{% include nav.html %}</nav>
     </header>
-    <main id="main" role="main" tabindex="1">
+    <main id="main" tabindex="1">
       {{ content | escape_once }}
       {% include comments.html %}
     </main>
-    <footer role="contentinfo">
-
+    <footer>
       <p>© Караваев С. В., <time datetime="2015">2015</time></p>
       <p>© Оформление. Караваев С. В., <time datetime="2015">2015</time></p>
     </footer>
