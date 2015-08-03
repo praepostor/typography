@@ -6,13 +6,14 @@
  * @valid    yes
  */
 address {
-    font-style: inherit;
+    font-style: normal;
 }
 
 body {
     border: none;
     height: 100%;
     /* IE & Opera relative font size cascading bug */
+    font-style: normal;
     font-size: 100.01%;
     margin: 0;
     /* IE 7 bug (if the line-height property is not equal to normal) */
