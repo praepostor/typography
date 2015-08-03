@@ -1,4 +1,5 @@
 ---
+layout: null
 ---
 {% capture cache %}
   {% capture url %}{{ site.url }}{{ site.baseurl }}{% endcapture %}

@@ -48,12 +48,13 @@ defaults:
       path: ""
     values:
       author: volado
+      lang: "ru-RU"
+      layout: minimizer
   -
     scope:
       path: ""
       type: "posts"
     values:
-      lang: "ru-RU"
       layout: default
 
 # Markdown Processors

@@ -12,7 +12,7 @@
     <meta name="MobileOptimized" content="width">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>{{ title | strip_newlines | xml_escape }}</title>
+    <title>{% include title %}</title>
     <meta name="description" content="{{ page.description | escape }}">
     
 {% for resource in site.data.resources.css %}
