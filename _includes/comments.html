@@ -1,21 +1,16 @@
-{% capture slug %}{% include slug %}{% endcapture %}
-<section>
-  <h2>Комментарии</h2>
-  <div id="disqus_thread"></div>
-  <script>
+{% capture id %}{% include id %}{% endcapture %}
+<script>
     var disqus_category_id = "{{ site.data.disqus.category_id }}",
-        disqus_identifier = "{{ slug | prepend: site.baseurl }}", // TODO
+        disqus_identifier = "{{ id }}",
         disqus_shortname = "{{ site.data.disqus.shortname }}",
-        disqus_title = "{{ slug | replace: '-', '_' }}", // TODO
+        disqus_title = "{{ id | replace: '-', '_' }}",
         disqus_url = "{% include uri %}";
     (function () {
-        var dsq = document.createElement("script");
-        dsq.async = true;
-        dsq.src = "https://" + disqus_shortname + ".disqus.com/embed.js";
-        (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+        var disqus = document.createElement("script");
+        disqus.async = true;
+        disqus.src = "https://" + disqus_shortname + ".disqus.com/embed.js";
+        (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(disqus);
     }());
 </script>
-</section>
-<noscript>
-  <p><a href="https://disqus.com/home/discussion/{{ site.data.disqus.shortname }}{% include slug %}">это</a>.</p>
-</noscript>
+{% assign id = nil %}
+</article>

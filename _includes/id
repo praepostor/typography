@@ -1,0 +1,9 @@
+{% capture id %}
+
+{{ site.baseurl }}
+
+{% capture slug %}{% include slug %}{% endcapture %}
+
+{% if slug != empty %}/{{ slug }}{% endif %}/
+
+{% endcapture %}{% include urified param = id %}{% assign id = nil %}
