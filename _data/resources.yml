@@ -3,5 +3,6 @@ css:
 js:
     html5shiv: https://cdn.rawgit.com/aFarkas/html5shiv/e5cb874fcb785f8fd1233d15dd97b8fff4dccb7a/dist/html5shiv.min.js
     all:
+        - https://code.jquery.com/jquery-1.11.3.min.js
         - /js/hy.min.js
         - /js/init.min.js

@@ -1,15 +1,13 @@
 {% capture id %}{% include id %}{% endcapture %}
 <script>
-    var disqus_category_id = "{{ site.data.disqus.category_id }}",
-        disqus_identifier = "{{ id }}",
-        disqus_shortname = "{{ site.data.disqus.shortname }}",
-        disqus_title = "{{ id | replace: '-', '_' }}",
-        disqus_url = "{% include uri %}";
-    (function () {
-        var disqus = document.createElement("script");
-        disqus.async = true;
-        disqus.src = "https://" + disqus_shortname + ".disqus.com/embed.js";
-        (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(disqus);
-    }());
+addEventListener("load", function () {
+    disqus("disqus_thread", {
+        categoryId: "{{ site.data.disqus.category_id }}",
+        identifier: "{{ id }}",
+        shortname: "{{ site.data.disqus.shortname }}",
+        title: "{{ id | replace: '-', '_' }}",
+        url: "{% include uri %}"
+    });
+}, false);
 </script>
 {% assign id = nil %}
