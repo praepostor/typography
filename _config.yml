@@ -1,5 +1,5 @@
 # Where things are
-source:      .
+source:      "."
 destination: ./_site
 plugins:     ./_plugins
 layouts:     ./_layouts
@@ -8,11 +8,11 @@ collections: null
 
 # Handling reading
 safe:         true
-include:      [".htaccess"] # Force inclusion in the conversion
+include:      [.htaccess] # Force inclusion in the conversion
 exclude:      [] # Exclude from the conversion
 keep_files:   [] # When clobbering the site destination, keep the selected files
-encoding:     "utf-8"
-markdown_ext: "markdown"
+encoding:     utf-8
+markdown_ext: markdown
 
 # Filtering content
 show_drafts: null
@@ -28,13 +28,13 @@ gems:      []
 markdown:    kramdown
 highlighter: rouge
 lsi:         false
-excerpt_separator: "\n\n"
+excerpt_separator: \n\n
 
 # Serving
 detach:  false # Detaches the server from the terminal
 port:    4000
 host:    127.0.0.1
-baseurl: "/typography" # Does not include hostname
+baseurl: /typography # Does not include hostname
 
 # Outputting
 permalink:     date
@@ -48,12 +48,12 @@ defaults:
       path: ""
     values:
       author: volado
-      lang: "ru-RU"
+      lang: ru
       layout: minimizer
   -
     scope:
       path: ""
-      type: "posts"
+      type: posts
     values:
       layout: default
 
@@ -85,7 +85,6 @@ sass:
   style: compressed
 
 # Variables
-title:    "Типографика­‑ⅩⅩⅠ"
-#url:      "http://localhost:4000"
-url:      "https://praepostor.github.io"
-uuid:     "b5eee0e3-51e5-46ad-a7c2-190ecb29a0bd"
+title: Типографика‑ⅩⅪ
+url:   https://praepostor.github.io
+uuid:  b5eee0e3-51e5-46ad-a7c2-190ecb29a0bd

@@ -1,7 +1,6 @@
 @import "helpers/mixins";
 @import "helpers/variables";
 
-
 @each $prefix in "-moz-", "" {
     ::#{$prefix}selection {
         background-color: $color-gray;

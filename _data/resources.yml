@@ -1,7 +1,7 @@
 css:
     - /css/main.css
 js:
-    html5shiv: https://cdn.rawgit.com/aFarkas/html5shiv/7307916eba969964f8b092f5f3ab836f6c4983a6/dist/html5shiv.min.js
+    html5shiv: https://cdn.rawgit.com/aFarkas/html5shiv/e5cb874fcb785f8fd1233d15dd97b8fff4dccb7a/dist/html5shiv.min.js
     all:
         - /js/hy.min.js
         - /js/init.min.js
