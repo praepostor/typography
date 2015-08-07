@@ -11,9 +11,9 @@
   <updated>{{ site.time | date_to_xmlschema }}</updated>
 {% for post in site.posts %}
   {% assign author = site.data.people[post.author] %}
-  {% capture lang %}{{ post.lang | xml_escape }}{% endcapture %}
+  {% assign lang = post.lang | xml_escape %}
   <entry>
-      <author>
+    <author>
       <email>{{ author.email | uri_escape | xml_escape }}</email>
       <name xml:lang="{{ lang }}">{{ author.name[lang] | xml_escape }}</name>
       <uri>{{ author.site | uri_escape | xml_escape }}</uri>

@@ -1,0 +1,27 @@
+{% capture _tmp %}
+
+  {% comment %}Algorithm by Anatol Broder{% endcomment %}
+
+  {% assign _blocks = content | split: '<pre' %}
+  {% assign _content = '' %}
+
+  {% for _block in _blocks %}
+    {% assign _cleaned = _block | split: '</pre>' %}
+    {% assign _last = _cleaned.last | split: ' ' | join: ' ' %}
+    {% if _cleaned.size == 2 %}
+      {% capture _first %}<pre{{ _cleaned.first }}</pre>{% endcapture %}
+    {% else %}
+      {% assign _first = '' %}
+    {% endif %}
+    {% capture _content %}{{ _content }}{{ _first }}{{ _last }}{% endcapture %}
+  {% endfor %}
+
+  {% assign _block = nil %}
+  {% assign _blocks = nil %}
+  {% assign _cleaned = nil %}
+  {% assign _first = nil %}
+  {% assign _last = nil %}
+
+  {% assign _content = _content | replace: '> <', '><' %}
+
+{% endcapture %}{{ _content }}{% assign _content = nil %}{% assign _tmp = nil %}

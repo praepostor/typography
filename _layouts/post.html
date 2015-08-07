@@ -1,3 +1,5 @@
 ---
-layout: default
+layout: template
 ---
+{{ content | escape_once }}
+{% include comments.html %}

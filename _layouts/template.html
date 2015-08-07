@@ -1,10 +1,9 @@
 ---
-layout: minimizer
+layout: minifier
 ---
 {% capture cache %}
   {% assign author = site.data.people[page.author] %}
-  {% capture url %}{{ site.url }}{% endcapture %}
-  {% include title %}
+  {% assign url = site.url %}
 {% endcapture %}{% assign cache = nil %}<!DOCTYPE html>
 <html lang="{{ page.lang | escape }}">
   <head>
@@ -16,35 +15,30 @@ layout: minimizer
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>{% include title %}</title>
     <meta name="description" content="{{ page.description | escape }}">
-    
 {% for resource in site.data.resources.css %}
     <link rel="stylesheet" href="{% include urinorm param = resource %}">
 {% endfor %}
-    
     <!--[if lt IE 9]>
     <script async src="{{ site.data.resources.js.html5shiv }}"></script>
     <![endif]-->
     {% for resource in site.data.resources.js.all %}
     <script defer src="{% include urinorm param = resource %}"></script>
     {% endfor %}
-
     <link rel="author" href="{% include urified param = author.site %}">
     <link rel="canonical" href="{% include uri %}">
   </head>
-  <body class="hyphenate" tabindex="-1">
+  <body tabindex="-1">
     <header>
       <div>
         <a href="{{ site.baseurl }}/">{{ site.title | escape }}</a>
       </div>
       <nav>{% include nav.html %}</nav>
     </header>
-    <main id="main">
+    <main class="hyphenate">
       {{ content | escape_once }}
-      {% include comments.html %}
     </main>
     <footer>
-      <p>© Караваев С. В., <time datetime="2015">2015</time></p>
-      <p>© Оформление. Караваев С. В., <time datetime="2015">2015</time></p>
+      {% include copyright.html %}
       <p><a href="https://get.adobe.com/reader/otherversions/">Adobe Reader</a></p>
     </footer>
   </body>

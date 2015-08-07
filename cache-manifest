@@ -1,10 +1,11 @@
 CACHE MANIFEST
 index.html
 css/main.css
-css/fonts/LiberationSerif.eot
-css/fonts/LiberationSerif.otf
-css/fonts/LiberationSerif.svg
-css/fonts/LiberationSerif.ttf
-css/fonts/LiberationSerif.woff
-css/fonts/LiberationSerif.woff2
+css/font/VoladoSerif.eot
+css/font/VoladoSerif.otf
+css/font/VoladoSerif.svg
+css/font/VoladoSerif.ttf
+css/font/VoladoSerif.woff
+css/font/VoladoSerif.woff2
+
 js/init.js

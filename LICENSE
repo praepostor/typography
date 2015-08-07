@@ -2,8 +2,8 @@
 layout: null
 ---
 The MIT License (MIT)
-
-Copyright (c) 2015 {{ site.data.people[page.author].name.en }}
+{% assign copyright = site.data.copyright.en[0] %}
+Copyright (c) {% include years param = copyright.years %} {{ copyright.owner }}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

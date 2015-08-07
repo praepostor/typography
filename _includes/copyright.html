@@ -1,0 +1,6 @@
+{% for copyright in site.data.copyright[page.lang] %}
+  {% capture a %}{% include years param = copyright.years %}{% endcapture %}
+  {% assign owner = copyright.owner %}
+  {% assign u = a | replace: '-', '&ndash;&#x2060;' %}
+  <p><small>© {{ owner }}, <time datetime="{{ a }}">{{ u }}</time></small></p>
+{% endfor %}

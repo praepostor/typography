@@ -8,9 +8,9 @@ collections: null
 
 # Handling reading
 safe:         true
-include:      [.htaccess] # Force inclusion in the conversion
-exclude:      [] # Exclude from the conversion
-keep_files:   [] # When clobbering the site destination, keep the selected files
+include:      [.htaccess]
+exclude:      []
+keep_files:   []
 encoding:     utf-8
 markdown_ext: markdown
 
@@ -31,10 +31,10 @@ lsi:         false
 excerpt_separator: \n\n
 
 # Serving
-detach:  false # Detaches the server from the terminal
+detach:  false
 port:    4000
 host:    127.0.0.1
-baseurl: /typography # Does not include hostname
+baseurl: /typography
 
 # Outputting
 permalink:     date
@@ -49,13 +49,13 @@ defaults:
     values:
       author: volado
       lang: ru
-      layout: minimizer
+      layout: minifier
   -
     scope:
       path: ""
       type: posts
     values:
-      layout: default
+      layout: post
 
 # Markdown Processors
 rdiscount:
