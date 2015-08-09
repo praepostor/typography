@@ -9,6 +9,5 @@ js:
     -
         tokens: [defer]
         uris:
-            - https://code.jquery.com/jquery-1.11.3.min.js
             - /js/hy.min.js
             - /js/init.min.js
