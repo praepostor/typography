@@ -1,12 +1,14 @@
-{% capture uri %}
+{% capture _uri %}
 
-{% assign uri = include.param %}
-{% assign scheme = uri | split: '//' | first %}
+{% assign _uri = include.value %}
+{% assign _scheme = _uri | split: '//' | first %}
 
-{% if scheme == uri %}
+{% if _scheme == _uri %}
 {{ site.baseurl }}
 {% endif %}
 
-{{ uri }}
+{{ _uri }}
 
-{% endcapture %}{% include urified param = uri %}{% assign uri = nil %}
+{% assign _scheme = nil %}
+
+{% endcapture %}{% include urified value = _uri %}{% assign _uri = nil %}

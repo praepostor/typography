@@ -1,12 +1,16 @@
-{% assign posts = site.posts %}
+{% assign _post = nil %}
+{% assign _posts = site.posts %}
+{% assign _urn = nil %}
 
-<ul>{% for post in posts %}
+<ul>{% for _post in _posts %}
 
-{% if post.title %}
-{% capture urn %}
-{{ post.url | prepend: site.baseurl  }}
-{% endcapture %}
-<li><a href="{% include urified param = urn %}">{{ post.title }}</a></li>
+{% if _post.title %}
+{% capture _urn %}{{ _post.url | prepend: site.baseurl }}{% endcapture %}
+<li><a href="{% include urified value = _urn %}">{{ _post.title }}</a></li>
 {% endif %}
 
 {% endfor %}</ul>
+
+{% assign _post = nil %}
+{% assign _posts = nil %}
+{% assign _urn = nil %}

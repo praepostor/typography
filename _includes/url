@@ -1,3 +1,3 @@
-{% capture url %}
+{% capture _url %}
 {{ site.baseurl | prepend: site.url }}
-{% endcapture %}{% include urified param = url %}{% assign url = nil %}
+{% endcapture %}{% include urified value = _url %}{% assign _url = nil %}

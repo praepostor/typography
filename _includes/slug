@@ -1,3 +1,0 @@
-{% capture slug %}
-{{ page.url | split: '/' | last }}
-{% endcapture %}{% include urified param = slug %}{% assign slug = nil %}

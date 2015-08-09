@@ -1,4 +1,5 @@
 {% capture id %}{% include id %}{% endcapture %}
+{% capture uri %}{% include uri %}{% endcapture %}
 <script>
 addEventListener("load", function () {
     disqus("disqus_thread", {
@@ -6,7 +7,7 @@ addEventListener("load", function () {
         identifier: "{{ id }}",
         shortname: "{{ site.data.disqus.shortname }}",
         title: "{{ id | replace: '-', '_' }}",
-        url: "{% include uri %}"
+        url: "{{ uri }}"
     });
 }, false);
 </script>

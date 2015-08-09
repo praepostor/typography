@@ -1,1 +1,17 @@
+# OS-generated files #
+######################
+._*
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+
+# Bundler #
+###########
+Gemfile.lock
+
+# Jekyll #
+##########
 _site

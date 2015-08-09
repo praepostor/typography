@@ -1,0 +1,4 @@
+{% for _resource in site.data.resources.css %}
+<link rel="stylesheet" href="{% include urinorm value = _resource %}">
+{% endfor %}
+{% assign _resource = nil %}

@@ -1,6 +1,33 @@
-{% for copyright in site.data.copyright[page.lang] %}
-  {% capture a %}{% include years param = copyright.years %}{% endcapture %}
-  {% assign owner = copyright.owner %}
-  {% assign u = a | replace: '-', '&ndash;&#x2060;' %}
-  <p><small>© {{ owner }}, <time datetime="{{ a }}">{{ u }}</time></small></p>
+{% capture _copyright %}
+
+{% assign _copyright = nil %}
+{% assign _html_years = nil %}
+{% assign _original_years = nil %}
+{% assign _owner = nil %}
+
+{% for _copyright in site.data.copyright[page.lang] %}
+
+{% assign _owner = _copyright.owner | xml_escape %}
+{% assign _original_years = _copyright.years | xml_escape %}
+
+{% capture _original_years %}
+{% include years value = _original_years %}
+{% endcapture %}
+
+{% assign _html_years = _original_years | replace: '-', '&ndash;&#x2060;' %}
+
+{% capture _years %}
+<time datetime="{{ _original_years }}">{{ _html_years }}</time>
+{% endcapture %}
+
+<p><small>© {{ _owner }}, {{ _years }}</small></p>
+
 {% endfor %}
+
+{% assign _copyright = nil %}
+{% assign _html_years = nil %}
+{% assign _original_years = nil %}
+{% assign _owner = nil %}
+{% assign _years = nil %}
+
+{% endcapture %}{{ _copyright }}{% assign _copyright = nil %}

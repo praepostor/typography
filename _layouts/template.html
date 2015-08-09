@@ -1,36 +1,29 @@
 ---
 layout: minifier
 ---
-{% capture cache %}
-  {% assign author = site.data.people[page.author] %}
-  {% assign url = site.url %}
-{% endcapture %}{% assign cache = nil %}<!DOCTYPE html>
-<html lang="{{ page.lang | escape }}">
+<!DOCTYPE html>
+<html lang="{{ page.lang | xml_escape }}" manifest="manifest.appcache">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="HandheldFriendly" content="true">
     <meta name="MobileOptimized" content="width">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>{% include title %}</title>
-    <meta name="description" content="{{ page.description | escape }}">
-{% for resource in site.data.resources.css %}
-    <link rel="stylesheet" href="{% include urinorm param = resource %}">
-{% endfor %}
-    <!--[if lt IE 9]>
-    <script async src="{{ site.data.resources.js.html5shiv }}"></script>
-    <![endif]-->
-    {% for resource in site.data.resources.js.all %}
-    <script defer src="{% include urinorm param = resource %}"></script>
-    {% endfor %}
-    <link rel="author" href="{% include urified param = author.site %}">
+    <meta name="description" content="{{ page.description | xml_escape }}">
+    {% include css resources = site.data.resources.css %}
+    {% include js resources = site.data.resources.js %}
+    {% assign author = site.data.people[page.author] %}
+    <link rel="author" href="{% include urified value = author.site %}">
     <link rel="canonical" href="{% include uri %}">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
   </head>
   <body tabindex="-1">
     <header>
       <div>
-        <a href="{{ site.baseurl }}/">{{ site.title | escape }}</a>
+        <a href="{{ site.baseurl }}/">{{ site.title | xml_escape }}</a>
       </div>
       <nav>{% include nav.html %}</nav>
     </header>

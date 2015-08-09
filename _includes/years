@@ -1,11 +1,15 @@
-{% capture years %}
+{% capture _years %}
 
-{% assign current_year = site.time | date: %Y | plus: 0 %}
+{% assign _creation_year = site.time | date: '%Y' | plus: 0 %}
+{% assign _current_year = include.value | plus: 0 %}
 
-{% if include.param < current_year %}
-{{ include.param }}-{{ current_year }}
+{% if _creation_year < _current_year %}
+{{ _creation_year }}-{{ _current_year }}
 {% else %}
-{{ include.param }}
+{{ _creation_year }}
 {% endif %}
 
-{% endcapture %}{{ years | strip_newlines }}{% assign years = nil %}
+{% assign _creation_year = nil %}
+{% assign _current_year = nil %}
+
+{% endcapture %}{{ _years | strip_newlines }}{% assign _years = nil %}
