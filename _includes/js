@@ -19,7 +19,7 @@
     {% comment %}src{% endcomment %}
     {% for _uri in _bundle.uris %}
       {% capture _script %}
-      <script{{ _attr }} src="{% include urinorm value = uri %}"></script>
+      <script{{ _attr }} src="{% include urinorm value = _uri %}"></script>
       {% endcapture %}
       {% if _bundle.condition %}
         {% capture _script %}
