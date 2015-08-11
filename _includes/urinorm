@@ -1,4 +1,4 @@
-{% capture uri %}
+{% assign uri = nil %}{% capture uri %}
 
 {% assign _scheme = include.value | split: '//' | first %}
 

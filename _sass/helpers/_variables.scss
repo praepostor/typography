@@ -13,8 +13,12 @@ $font-size-basic: 0.376mm * 14;
 $font-size-large: 1.25em;
 $font-size-larger: 1.5em;
 $font-size-largest: 1.75em;
-$font-size-small: 0.75em;
+$font-size-small: 0.5em;
+
+$line-height: 1.5;
 
 $prefixes: "-moz-", "-ms-", "-webkit-", "";
+
+$sections: toc, annotation, introduction, conclusion, bibliography, comments;
 
 $text-indent: $font-size-basic * 2;

@@ -4,7 +4,7 @@
 @include font-face($font-path, $font-name);
 
 /**
- * Lack of support for 'font-style: inherit' in IE up to and including version 7
+ * Lack of support for 'inherit' in IE up to and including version 7
  *
  * @bugfix
  * @affected IE <= 7
@@ -20,14 +20,29 @@ p address {
 }
 
 body {
-    font-family: quote($font-name), serif;
     font-size: $font-size-basic;
-    line-height: 1.5;
+    line-height: $line-height;
     text-align: justify;
 }
 
+/**
+ * Lack of support for 'inherit' in IE up to and including version 7
+ *
+ * @bugfix
+ * @affected IE <= 7
+ * @valid yes
+ */
+body,
 code {
-    font-family: inherit;
+    font-family: quote($font-name), serif;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    line-height: $font-size-small * $line-height;
 }
 
 h1 {
@@ -44,9 +59,15 @@ h2 {
     text-indent: $text-indent;
 }
 
-h2:not(#toc):not(#annotation):not(#introduction):not(#conclusion):not(#bibliography):not(#comments):before {
+h2:not(%sections):before {
     content: counter(section) ".\2002";
     counter-increment: section;
+}
+
+@each $id in $sections {
+    ##{$id} {
+        @extend %sections;
+    }
 }
 
 h3 {
@@ -64,6 +85,10 @@ li,
 p {
     margin: 0;
     text-indent: $text-indent;
+}
+
+nav li {
+    line-height: 2;
 }
 
 ol,

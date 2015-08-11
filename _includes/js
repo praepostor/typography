@@ -1,4 +1,4 @@
-{% capture _js %}
+{% assign _js = nil %}{% capture _js %}
 
   {% assign _attr = '' %}
   {% assign _bundle = nil %}

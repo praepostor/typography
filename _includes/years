@@ -1,4 +1,4 @@
-{% capture _years %}
+{% assign _years = nil %}{% capture _years %}
 
 {% assign _creation_year = include.value | plus: 0 %}
 {% assign _current_year = site.time | date: '%Y' | plus: 0 %}

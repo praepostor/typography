@@ -84,7 +84,7 @@ kramdown:
   footnote_nr:       1
   hard_wrap:         false
   input:             GFM
-  toc_levels:        2..3
+  toc_levels:        2..2
 
 sass:
   sass_dir: _sass

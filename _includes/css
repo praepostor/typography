@@ -1,4 +1,4 @@
-{% capture _css %}
+{% assign _css = nil %}{% capture _css %}
 
 {% assign _resource = nil %}
 

@@ -1,4 +1,4 @@
-{% capture _id %}
+{% assign _id = nil %}{% capture _id %}
 {{ site.baseurl }}
 {% assign _slug = page.url | slugify %}
 {% if _slug != empty %}/{{ _slug }}{% endif %}/

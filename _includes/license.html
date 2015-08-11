@@ -1,16 +1,16 @@
-{% capture _license %}
+{% assign _license = nil %}{% capture _license %}
 
 <a href="{% include urinorm value = include.data.text_uri %}"
    rel="license">
 
 {% if include.data.image_uri %}
-  <img alt="{{ include.data.label | xml_escape }}"
+<img alt="{{ include.data.label | xml_escape }}"
        height="{{ include.data.image_height }}"
        src="{% include urinorm value = include.data.image_uri %}"
        title="{{ include.data.label | xml_escape }}"
        width="{{ include.data.image_width }}">
 {% else %}
-  {{ include.data.label | xml_escape }}
+{{ include.data.label | xml_escape }}
 {% endif %}
 
 </a>

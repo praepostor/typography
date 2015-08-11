@@ -1,19 +1,20 @@
 {% assign _copyright = nil %}{% capture _copyright %}
 
-{% capture _owner %}
+{% assign _title = '' %}
+{% if include.copyright.title %}
+{% assign _title = include.copyright.title | append: ' ' %}
+{% endif %}
+
 {% assign _owner = site.data.people[include.copyright.owner] %}
-{% include author-a.html author = _owner %}
-{% assign _owner = nil %}
-{% endcapture %}
+{% capture _owner %}{% include author-a.html author = _owner %}{% endcapture %}
 
-{% capture _title %}{{ include.copyright.title }}{{ ' ' }}{% endcapture %}
+{% assign _years = include.copyright.years %}
+{% capture _years %}{% include years.html years = _years %}{% endcapture %}
 
-{% capture _years %}
-{% include years.html years = include.copyright.years %}
-{% endcapture %}
-
-&copy;&nbsp;{{ _title }}{{ _owner | strip_newlines }}, {{ _years | strip_newlines }}.
+&copy;&ensp;&#x2060;{{ _title }}{{ _owner }}, {{ _years }}.
 
 {% assign _owner = nil %}
+{% assign _title = nil %}
+{% assign _years = nil %}
 
 {% endcapture %}{{ _copyright }}{% assign _copyright = nil %}

@@ -2,29 +2,36 @@
 layout: null
 ---
 CACHE MANIFEST
-
 # Build revision: {{ site.github.build_revision }}
 # Timestamp: {{ site.time | date_to_xmlschema }}
+{% capture _cache %}
+
+{% capture _in %}
 
 # CSS
-
-{{ site.baseurl }}/css/main.css
-
-# JavaScript
-{% for _bundle in site.data.resources.js %}
-{% for _uri in _bundle.uris %}
+{% for _uri in site.data.resources.css %}
 {% include urinorm value = _uri %}
 {% endfor %}
-{% endfor %}
 
-#{{ site.baseurl }}/js/hy.min.js
-
-#{{ site.baseurl }}/js/init.min.js
+# JavaScript
+{% for _bundle in site.data.resources.js %}{% for _uri in _bundle.uris %}
+{% include urinorm value = _uri %}{% endfor %}{% endfor %}
 
 # Icon
-{{ site.baseurl }}/favicon.ico
+{% include urified value = site.baseurl %}/favicon.ico
 
-# HTML
-{% for post in site.posts %}
-{{ post.url | prepend: site.baseurl | uri_escape | xml_escape }}
-{% endfor %}{% assign post = nil %}
+{% endcapture %}
+
+{% assign _out = '' %}
+{% assign _in = _in | remove: ' ' | split: ' ' %}
+{% for _item in _in %}
+  {% assign _first = _item | truncate: 1, '' %}
+  {% if _first != '#' %}
+{% capture _out %}{{ _out }}{{ _item }}
+{% endcapture %}
+  {% endif %}
+{% endfor %}
+
+{% assign _in = nil %}
+
+{% endcapture %}{% assign _cache = nil %}{{ _out }}{% assign _out = nil %}

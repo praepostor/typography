@@ -1,4 +1,4 @@
-{% capture _title %}
+{% assign _title = nil %}{% capture _title %}
 
 {% if page.title %}
 {{ page.title }}
