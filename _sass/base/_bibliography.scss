@@ -1,5 +1,7 @@
+@import "helpers/variables";
+
 sup {
-    font-size: medium;
+    font-size: $font-size-basic;
     vertical-align: baseline;
 }
 

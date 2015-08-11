@@ -28,14 +28,19 @@ main {
     padding: 0 1%;
 }
 
+footer li,
+nav li {
+    line-height: 2;
+}
+
+footer ul {
+    list-style: none;
+}
+
 header {
     background-color: $color-white;
 }
 
 main {
     min-height: 100%;
-}
-
-nav li {
-    line-height: 2;
 }

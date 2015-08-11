@@ -5,8 +5,10 @@
 
 {% if include.data.image_uri %}
   <img alt="{{ include.data.label | xml_escape }}"
+       height="{{ include.data.image_height }}"
        src="{% include urinorm value = include.data.image_uri %}"
-       title="{{ include.data.label | xml_escape }}">
+       title="{{ include.data.label | xml_escape }}"
+       width="{{ include.data.image_width }}">
 {% else %}
   {{ include.data.label | xml_escape }}
 {% endif %}

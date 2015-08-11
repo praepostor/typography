@@ -34,13 +34,12 @@ layout: null
       {{ content | escape_once }}
     </main>
     <footer>
-      {% assign author = site.data.people.volado %}
-      {% include copyright.html owner = author %}
-      {% include copyright.html owner = author %}
-      
-      {% assign author = nil %}
-
-      {% include license.html data = site.data.license %}
+      <ul>
+      {% for copyright in site.data.copyright %}
+      <li>{% include copyright.html copyright = copyright %}</li>
+      {% endfor %}
+      </ul>
+      <p>{% include license.html data = site.data.license %}</p>
     </footer>
   </body>
 </html>

@@ -1,7 +1,7 @@
 {% capture _years %}
 
-{% assign _creation_year = site.time | date: '%Y' | plus: 0 %}
-{% assign _current_year = include.value | plus: 0 %}
+{% assign _creation_year = include.value | plus: 0 %}
+{% assign _current_year = site.time | date: '%Y' | plus: 0 %}
 
 {% if _creation_year < _current_year %}
 {{ _creation_year }}-{{ _current_year }}

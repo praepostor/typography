@@ -1,0 +1,16 @@
+{% assign _author = nil %}{% capture _author %}
+
+{% assign _author = include.author.name[page.lang] | xml_escape %}
+
+{% if include.author.site %}
+<address>
+  <a rel="author"
+     href="{% include urified value = include.author.site %}">{{ _author }}</a>
+</address>
+{% else %}
+  {{ _author }}
+{% endif %}
+
+{% assign _author = nil %}
+
+{% endcapture %}{{ _author }}{% assign _author = nil %}

@@ -1,0 +1,14 @@
+{% assign _years = nil %}{% capture _years %}
+
+{% capture _original_years %}
+{% include years value = include.years %}
+{% endcapture %}
+
+{% assign _html_years = _original_years | replace: '-', '&ndash;&#x2060;' %}
+
+<time datetime="{{ _original_years | strip_newlines }}">{{ _html_years }}</time>
+
+{% assign _html_years = nil %}
+{% assign _original_years = nil %}
+
+{% endcapture %}{{ _years | strip_newlines }}{% assign _years = nil %}

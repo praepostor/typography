@@ -3,25 +3,42 @@
 
 @include font-face($font-path, $font-name);
 
+/**
+ * Lack of support for 'font-style: inherit' in IE up to and including version 7
+ *
+ * @bugfix
+ * @affected IE <= 7
+ * @valid yes
+ */
 address {
     font-style: normal;
 }
 
+li address,
+p address {
+    display: inline;
+}
+
 body {
-    counter-reset: section;
     font-family: quote($font-name), serif;
     font-size: $font-size-basic;
     line-height: 1.5;
     text-align: justify;
 }
 
+code {
+    font-family: inherit;
+}
+
 h1 {
+    counter-reset: section;
     font-size: $font-size-largest;
     margin: 0;
     text-indent: $text-indent;
 }
 
 h2 {
+    counter-reset: subsection;
     font-size: $font-size-larger;
     margin: 0;
     text-indent: $text-indent;
@@ -30,7 +47,6 @@ h2 {
 h2:not(#toc):not(#annotation):not(#introduction):not(#conclusion):not(#bibliography):not(#comments):before {
     content: counter(section) ".\2002";
     counter-increment: section;
-    counter-reset: subsection;
 }
 
 h3 {
@@ -44,6 +60,12 @@ h3:before {
     content: counter(section) "." counter(subsection) ".\2002";
 }
 
+li,
+p {
+    margin: 0;
+    text-indent: $text-indent;
+}
+
 ol,
 ul {
     list-style-position: inside;
@@ -51,9 +73,8 @@ ul {
     padding: 0;
 }
 
-p {
-    margin: 0;
-    text-indent: $text-indent;
+small {
+    font-size: $font-size-small;
 }
 
 td,

@@ -1,38 +1,19 @@
-{% capture _copyright %}
-
-{% assign _copyright = nil %}
-{% assign _html_years = nil %}
-{% assign _original_years = nil %}
-{% assign _owner = nil %}
-
-{% for _copyright in site.data.copyright[page.lang] %}
-
-{% assign _owner = _copyright.owner | xml_escape %}
+{% assign _copyright = nil %}{% capture _copyright %}
 
 {% capture _owner %}
-{% include author-a author = include.author %}
+{% assign _owner = site.data.people[include.copyright.owner] %}
+{% include author-a.html author = _owner %}
+{% assign _owner = nil %}
 {% endcapture %}
 
-{% assign _original_years = _copyright.years | xml_escape %}
-
-{% capture _original_years %}
-{% include years value = _original_years %}
-{% endcapture %}
-
-{% assign _html_years = _original_years | replace: '-', '&ndash;&#x2060;' %}
+{% capture _title %}{{ include.copyright.title }}{{ ' ' }}{% endcapture %}
 
 {% capture _years %}
-<time datetime="{{ _original_years | strip_newlines }}">{{ _html_years }}</time>
+{% include years.html years = include.copyright.years %}
 {% endcapture %}
 
-<p><small>© {{ _owner }}, {{ _years }}</small></p>
+&copy;&nbsp;{{ _title }}{{ _owner | strip_newlines }}, {{ _years | strip_newlines }}.
 
-{% endfor %}
-
-{% assign _copyright = nil %}
-{% assign _html_years = nil %}
-{% assign _original_years = nil %}
 {% assign _owner = nil %}
-{% assign _years = nil %}
 
 {% endcapture %}{{ _copyright }}{% assign _copyright = nil %}

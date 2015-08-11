@@ -1,9 +1,0 @@
-{% capture _author %}
-<address>
-<a rel="author"
-   href="{% include urified value = include.author.site %}"
-   title="Перейти на сайт автора">
-  {{ include.author.name[page.lang] | xml_escape }}
-</a>
-</address>
-{% endcapture %}{{ _author }}{% assign _author = nil %}
