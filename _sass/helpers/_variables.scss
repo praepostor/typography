@@ -9,4 +9,12 @@ $color-white:      #fff;
 $font-path: fonts/VoladoSerif;
 $font-name: extract-filename($font-path);
 
+$font-size-basic: 0.376mm * 14;
+
+$font-size-large: 1.25em;
+$font-size-larger: 1.5em;
+$font-size-largest: 1.75em;
+
 $prefixes: "-moz-", "-ms-", "-webkit-", "";
+
+$text-indent: $font-size-basic * 2;

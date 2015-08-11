@@ -1,8 +1,8 @@
 ---
-layout: minifier
+layout: null
 ---
 <!DOCTYPE html>
-<html lang="{{ page.lang | xml_escape }}" manifest="manifest.appcache">
+<html lang="{{ page.lang | xml_escape }}" manifest="{{ site.baseurl }}/manifest.appcache">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -15,8 +15,11 @@ layout: minifier
     <meta name="description" content="{{ page.description | xml_escape }}">
     {% include css resources = site.data.resources.css %}
     {% include js resources = site.data.resources.js %}
+    
     {% assign author = site.data.people[page.author] %}
-    <link rel="author" href="{% include urified value = author.site %}">
+    {% include author-link author = author %}
+    {% assign author = nil %}
+
     <link rel="canonical" href="{% include uri %}">
     <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
   </head>
@@ -31,8 +34,13 @@ layout: minifier
       {{ content | escape_once }}
     </main>
     <footer>
-      {% include copyright.html %}
-      <p><a href="https://get.adobe.com/reader/otherversions/">Adobe Reader</a></p>
+      {% assign author = site.data.people.volado %}
+      {% include copyright.html owner = author %}
+      {% include copyright.html owner = author %}
+      
+      {% assign author = nil %}
+
+      {% include license.html data = site.data.license %}
     </footer>
   </body>
 </html>

@@ -7,20 +7,41 @@ address {
     font-style: normal;
 }
 
-address,
-h1,
-h2,
-h3,
-li,
-p {
-    margin: 0;
-    text-indent: 1cm;
-}
-
 body {
+    counter-reset: section;
     font-family: quote($font-name), serif;
+    font-size: $font-size-basic;
     line-height: 1.5;
     text-align: justify;
+}
+
+h1 {
+    font-size: $font-size-largest;
+    margin: 0;
+    text-indent: $text-indent;
+}
+
+h2 {
+    font-size: $font-size-larger;
+    margin: 0;
+    text-indent: $text-indent;
+}
+
+h2:not(#toc):not(#annotation):not(#introduction):not(#conclusion):not(#bibliography):not(#comments):before {
+    content: counter(section) ".\2002";
+    counter-increment: section;
+    counter-reset: subsection;
+}
+
+h3 {
+    counter-increment: subsection;
+    font-size: $font-size-large;
+    margin: 0;
+    text-indent: $text-indent;
+}
+
+h3:before {
+    content: counter(section) "." counter(subsection) ".\2002";
 }
 
 ol,
@@ -28,6 +49,11 @@ ul {
     list-style-position: inside;
     margin: 0;
     padding: 0;
+}
+
+p {
+    margin: 0;
+    text-indent: $text-indent;
 }
 
 td,

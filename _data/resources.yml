@@ -9,5 +9,6 @@ js:
     -
         tokens: [defer]
         uris:
-            - /js/hy.min.js
+            - https://cdn.jsdelivr.net/hyphenator/4.3.0/hyphenator.min.js
+            - https://cdn.jsdelivr.net/hyphenator/4.3.0/patterns/ru.js
             - /js/init.min.js

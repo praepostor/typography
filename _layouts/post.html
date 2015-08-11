@@ -1,5 +1,10 @@
 ---
 layout: template
 ---
-{{ content | escape_once }}
-{% include comments.html %}
+<article>
+  {{ content | escape_once }}
+  <article>
+    <h2 id="comments">Комментарии</h2>
+    {% include comments.html %}
+  </article>
+</article>

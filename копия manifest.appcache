@@ -10,17 +10,16 @@ CACHE MANIFEST
 
 {{ site.baseurl }}/css/main.css
 
-# Font
-{% assign exts = 'eot,otf,svg,ttf,woff,woff2' | split: ',' %}
-{% for ext in exts %}
-{{ site.baseurl}}/css/fonts/VoladoSerif.{{ ext }}
-{% endfor %}{% assign ext = nil %}{% assign exts = nil %}
-
 # JavaScript
+{% for _bundle in site.data.resources.js %}
+{% for _uri in _bundle.uris %}
+{% include urinorm value = _uri %}
+{% endfor %}
+{% endfor %}
 
-{{ site.baseurl }}/js/hy.min.js
+#{{ site.baseurl }}/js/hy.min.js
 
-{{ site.baseurl }}/js/init.min.js
+#{{ site.baseurl }}/js/init.min.js
 
 # Icon
 {{ site.baseurl }}/favicon.ico

@@ -8,6 +8,11 @@
 {% for _copyright in site.data.copyright[page.lang] %}
 
 {% assign _owner = _copyright.owner | xml_escape %}
+
+{% capture _owner %}
+{% include author-a author = include.author %}
+{% endcapture %}
+
 {% assign _original_years = _copyright.years | xml_escape %}
 
 {% capture _original_years %}
@@ -17,7 +22,7 @@
 {% assign _html_years = _original_years | replace: '-', '&ndash;&#x2060;' %}
 
 {% capture _years %}
-<time datetime="{{ _original_years }}">{{ _html_years }}</time>
+<time datetime="{{ _original_years | strip_newlines }}">{{ _html_years }}</time>
 {% endcapture %}
 
 <p><small>© {{ _owner }}, {{ _years }}</small></p>
