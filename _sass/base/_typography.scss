@@ -41,11 +41,6 @@ footer {
     font-size: $font-size-small;
 }
 
-footer li,
-nav li {
-    line-height: 2;
-}
-
 footer ul {
     list-style: none;
 }
@@ -90,6 +85,10 @@ li,
 p {
     margin: 0;
     text-indent: $text-indent;
+}
+
+nav li {
+    line-height: 2;
 }
 
 ol,
