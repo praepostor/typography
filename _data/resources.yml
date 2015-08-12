@@ -1,7 +1,7 @@
 css:
     - /css/main.css
 font:
-    - /css/fonts/volado/v1-0-0/VoladoSerif
+    - /fonts/volado/v1-0-0/VoladoSerif
 js:
     -
         condition: lt IE 9
