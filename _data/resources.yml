@@ -1,7 +1,7 @@
 css:
     - /css/main.css
 font:
-    - /fonts/volado/v1-0-0/VoladoSerif
+    - /fonts/volado/v1-0-0/VoladoSerif.eot
 js:
     -
         condition: lt IE 9
@@ -11,6 +11,5 @@ js:
     -
         tokens: [defer]
         uris:
-            - https://cdn.jsdelivr.net/hyphenator/4.3.0/hyphenator.min.js
-            - https://cdn.jsdelivr.net/hyphenator/4.3.0/patterns/ru.js
+            - /js/hy.min.js
             - /js/init.min.js

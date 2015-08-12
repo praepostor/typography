@@ -1,11 +1,23 @@
-{% assign uri = nil %}{% capture uri %}
+{% assign _temp = nil %}{% capture _temp %}
 
-{% assign _scheme = include.value | split: '//' | first %}
+  {% assign _scheme = include.value | split: '//' | first %}
+  {% assign uri = '' %}
 
-{% if _scheme == include.value %}
-{{ site.baseurl }}
-{% endif %}
+  {% if _scheme == include.value %}
+    {% if site.github %}
+{% capture uri %}
+https://cdn.rawgit.com/
+{{ site.github.owner_name }}/
+{{ site.github.repository_name }}/
+{{ site.github.build_revision }}
+{% endcapture %}
+    {% endif %}
+    {% assign uri = uri | append: site.baseurl %}
+  {% endif %}
 
-{{ include.value }}
+  {% assign _scheme = nil %}
+  {% assign uri = uri | append: include.value %}
 
-{% endcapture %}{% include urified value = uri %}{% assign uri = nil %}
+  {% capture uri %}{% include urified value = uri %}{% endcapture %}
+
+{% endcapture %}{{ uri }}{% assign uri = nil %}{% assign _temp = nil %}
