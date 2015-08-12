@@ -3,10 +3,10 @@
 $color-black:      #000;
 $color-blue-dark:  #369;
 $color-blue-light: #69c;
-$color-gray:       #3f4549;
-$color-white:      #fff;
+$color-gray:       #3F4549;
+$color-white:      #FFF;
 
-$font-path: fonts/VoladoSerif;
+$font-path: "../fonts/volado/v1-0-0/VoladoSerif";
 $font-name: extract-filename($font-path);
 
 $font-size-basic: 0.376mm * 14;

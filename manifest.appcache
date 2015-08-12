@@ -13,6 +13,11 @@ CACHE MANIFEST
 {% include urinorm value = _uri %}
 {% endfor %}
 
+# Font
+{% for _uri in site.data.resources.font %}
+{% include urinorm value = _uri %}.ttf
+{% endfor %}
+
 # JavaScript
 {% for _bundle in site.data.resources.js %}{% for _uri in _bundle.uris %}
 {% include urinorm value = _uri %}{% endfor %}{% endfor %}
