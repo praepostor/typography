@@ -1,11 +1,9 @@
 ---
 layout: template
 ---
+{{ content | escape_once }}
+<p><small>Для просмотра источников в формате PDF может потребоваться специальное программное обеспечение (например, <a href="https://get.adobe.com/reader/otherversions/">Adobe Reader</a>).</small></p>
 <article>
-  {{ content | escape_once }}
-  <p><small>Для просмотра источников в формате PDF может потребоваться специальное программное обеспечение (например, <a href="https://get.adobe.com/reader/otherversions/">Adobe Reader</a>).</small></p>
-  <article>
-    <h2 id="comments">Комментарии</h2>
-    {% include comments.html %}
-  </article>
+  <h2 id="comments">Комментарии</h2>
+  {% include comments.html %}
 </article>
