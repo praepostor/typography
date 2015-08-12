@@ -4,39 +4,59 @@ layout: null
 CACHE MANIFEST
 # Build revision: {{ site.github.build_revision }}
 # Timestamp: {{ site.time | date_to_xmlschema }}
-{% capture _cache %}
+{% capture _temp %}
 
-{% capture _in %}
+  {% capture _cache %}
+    # CSS
+    {% for _uri in site.data.resources.css %}
+      {% include urinorm value = _uri %}
+    {% endfor %}
 
-# CSS
-{% for _uri in site.data.resources.css %}
-{% include urinorm value = _uri %}
-{% endfor %}
+    # Font
+    {% for _uri in site.data.resources.font %}
+      {% capture _urinorm %}{% include urinorm value = _uri %}{% endcapture %}
+        {{ _urinorm }}.eot?#fix
+        {{ _urinorm }}.ttf
+      {% endfor %}
+    {% assign _urinorm = nil %}
 
-# Font
-{% for _uri in site.data.resources.font %}
-{% include urinorm value = _uri %}.ttf
-{% endfor %}
+    # Icon
+    {% include urinorm value = '/favicon.ico' %}
 
-# JavaScript
-{% for _bundle in site.data.resources.js %}{% for _uri in _bundle.uris %}
-{% include urinorm value = _uri %}{% endfor %}{% endfor %}
+    # JavaScript
+    {% for _bundle in site.data.resources.js %}
+      {% for _uri in _bundle.uris %}
+        {% include urinorm value = _uri %}
+      {% endfor %}
+    {% endfor %}
+  {% endcapture %}
 
-# Icon
-{% include urified value = site.baseurl %}/favicon.ico
-
+  {% assign _list = _cache | remove: ' ' | split: ' ' | sort %}
+  {% assign _cache = '' %}
+  {% for _item in _list %}
+    {% assign _first = _item | truncate: 1, '' %}
+    {% if _first != '#' %}
+{% capture _cache %}{{ _cache }}{{ _item }}
 {% endcapture %}
+    {% endif %}
+  {% endfor %}
+  {% assign _list = nil %}
 
-{% assign _out = '' %}
-{% assign _in = _in | remove: ' ' | split: ' ' %}
-{% for _item in _in %}
-  {% assign _first = _item | truncate: 1, '' %}
-  {% if _first != '#' %}
-{% capture _out %}{{ _out }}{{ _item }}
+{% capture _fallback %}FALLBACK:
 {% endcapture %}
-  {% endif %}
-{% endfor %}
+  {% assign _exts = 'otf,woff,woff2' | split: ',' | sort %}
+  {% for _uri in site.data.resources.font %}
+    {% capture _urinorm %}{% include urinorm value = _uri %}{% endcapture %}
+    {% for _ext in _exts %}
+{% capture _fallback %}{{ _fallback }}{{ _urinorm }}.{{ _ext }} {{ _uri }}.ttf
+{% endcapture %}
+    {% endfor %}
+  {% endfor %}
+  {% assign _exts = nil %}
+  {% assign _fallback = _fallback %}
 
-{% assign _in = nil %}
+  {% capture _output %}{{ _cache }}{{ _fallback }}{% endcapture %}
+  {% assign _cache = nil %}
+  {% assign _fallback = nil %}
 
-{% endcapture %}{% assign _cache = nil %}{{ _out }}{% assign _out = nil %}
+{% endcapture %}{% assign _temp = nil %}{{ _output }}{% assign _output = nil %}
