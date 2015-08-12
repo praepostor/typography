@@ -36,7 +36,7 @@ layout: null
     <footer>
       <ul>
       {% for copyright in site.data.copyright %}
-      <li><small>{% include copyright.html copyright = copyright %}</small></li>
+      <li>{% include copyright.html copyright = copyright %}</li>
       {% endfor %}
       <li>{% include license.html data = site.data.license %}</li>
       </ul>

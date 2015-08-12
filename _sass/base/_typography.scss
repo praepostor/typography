@@ -37,12 +37,12 @@ code {
     font-family: quote($font-name), serif;
 }
 
-footer ul {
-    list-style: none;
+footer {
+    font-size: $font-size-small;
 }
 
-footer ul li {
-    line-height: $font-size-small * $line-height;
+footer ul {
+    list-style: none;
 }
 
 h1 {
@@ -96,10 +96,6 @@ ul {
     list-style-position: inside;
     margin: 0;
     padding: 0;
-}
-
-small {
-    font-size: $font-size-small;
 }
 
 td,
