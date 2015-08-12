@@ -14,11 +14,11 @@ CACHE MANIFEST
 
     # Font
     {% for _uri in site.data.resources.font %}
-      {% capture _urinorm %}{% include urinorm value = _uri %}{% endcapture %}
-        {{ _urinorm }}.eot?#fix
-        {{ _urinorm }}.ttf
+      {% capture _norm %}{% include urinorm value = _uri %}{% endcapture %}
+        {{ _norm }}.eot?#fix
+        {{ _norm }}.ttf
       {% endfor %}
-    {% assign _urinorm = nil %}
+    {% assign _norm = nil %}
 
     # Icon
     {% include urinorm value = '/favicon.ico' %}
@@ -46,14 +46,14 @@ CACHE MANIFEST
 {% endcapture %}
   {% assign _exts = 'otf,woff,woff2' | split: ',' | sort %}
   {% for _uri in site.data.resources.font %}
-    {% capture _urinorm %}{% include urinorm value = _uri %}{% endcapture %}
+    {% capture _norm %}{% include urinorm value = _uri %}{% endcapture %}
     {% for _ext in _exts %}
-{% capture _fallback %}{{ _fallback }}{{ _urinorm }}.{{ _ext }} {{ _uri }}.ttf
+{% capture _fallback %}{{ _fallback }}{{ _norm }}.{{ _ext }} {{ _norm }}.ttf
 {% endcapture %}
     {% endfor %}
   {% endfor %}
   {% assign _exts = nil %}
-  {% assign _fallback = _fallback %}
+  {% assign _norm = nil %}
 
   {% capture _output %}{{ _cache }}{{ _fallback }}{% endcapture %}
   {% assign _cache = nil %}
