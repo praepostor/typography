@@ -1,20 +1,22 @@
 {% assign _temp = nil %}{% capture _temp %}
 
+  {% assign _files = site.static_files | map: 'path' %}
   {% assign _scheme = include.value | split: '//' | first %}
-  {% assign uri = '' %}
 
   {% if _scheme == include.value %}
-    {% if site.github %}
+    {% if site.github and _files contains _scheme %}
 {% capture uri %}
 https://cdn.rawgit.com/
 {{ site.github.owner_name }}/
 {{ site.github.repository_name }}/
 {{ site.github.build_revision }}
 {% endcapture %}
+    {% else %}
+      {% assign uri = site.baseurl %}
     {% endif %}
-    {% assign uri = uri | append: site.baseurl %}
   {% endif %}
 
+  {% assign _files = nil %}
   {% assign _scheme = nil %}
   {% assign uri = uri | append: include.value %}
 
