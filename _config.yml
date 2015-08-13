@@ -8,8 +8,15 @@ collections: null
 
 # Handling reading
 safe:         true
-include:      [.htaccess]
-exclude:      [Gemfile, Gemfile.lock, README.markdown, Thumbs.db, ehthumbs.db]
+include:
+    - .htaccess
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - LICENSE.txt
+    - README.markdown
+    - Thumbs.db
+    - ehthumbs.db
 keep_files:   []
 encoding:     utf-8
 markdown_ext: markdown
