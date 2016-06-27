@@ -13,7 +13,7 @@ layout: minifier
           content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>{% include title %}</title>
     <meta name="description" content="{{ page.description | xml_escape }}">
-    {% include css resources = site.data.resources.css %}
+    
     {% include js resources = site.data.resources.js %}
     
     {% assign author = site.data.people[page.author] %}
@@ -41,5 +41,6 @@ layout: minifier
       <li>{% include license.html data = site.data.license %}</li>
       </ul>
     </footer>
+    {% include css resources = site.data.resources.css %}
   </body>
 </html>
