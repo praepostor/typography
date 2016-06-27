@@ -13,13 +13,9 @@ layout: minifier
           content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>{% include title %}</title>
     <meta name="description" content="{{ page.description | xml_escape }}">
-    <link media="bogus" rel="stylesheet" href="/typography/css/main.css">
-
-    
     {% assign author = site.data.people[page.author] %}
     {% include author-link author = author %}
     {% assign author = nil %}
-
     <link rel="canonical" href="{% include uri %}">
     <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
   </head>
