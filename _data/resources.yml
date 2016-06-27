@@ -1,5 +1,5 @@
 css:
-    - /css/main.css
+    - https://rawgit.com/praepostor/typography/df297bd04e7885f88644e7f9bbfc7463903d0a79/_sass/base/_reset.scss
 font:
     - /fonts/volado/v1-0-0/VoladoSerif.eot
 js:
