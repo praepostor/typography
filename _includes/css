@@ -1,7 +1,7 @@
 {% assign _css = nil %}{% capture _css %}
 
 {% for _uri in include.resources %}
-  <link rel="stylesheet" href="{% include urinorm value = _uri %}">
+  <link media="bogus" rel="stylesheet" href="{% include urinorm value = _uri %}">
 {% endfor %}
 
 {% endcapture %}{{ _css }}{% assign _css = nil %}
