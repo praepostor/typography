@@ -14,8 +14,7 @@ layout: minifier
     <title>{% include title %}</title>
     <meta name="description" content="{{ page.description | xml_escape }}">
     
-    {% include js resources = site.data.resources.js %}
-    {% include css resources = site.data.resources.css %}
+
     
     {% assign author = site.data.people[page.author] %}
     {% include author-link author = author %}
@@ -42,5 +41,7 @@ layout: minifier
       <li>{% include license.html data = site.data.license %}</li>
       </ul>
     </footer>
+    {% include js resources = site.data.resources.js %}
+    {% include css resources = site.data.resources.css %}
   </body>
 </html>
