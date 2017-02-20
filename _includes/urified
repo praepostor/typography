@@ -1,1 +1,0 @@
-{{ include.value | strip_newlines | uri_escape | xml_escape }}

@@ -1,3 +1,0 @@
-{% assign _uri = nil %}{% capture _uri %}
-{% include url %}{% include urn %}
-{% endcapture %}{% include urified value = _uri %}{% assign _uri = nil %}

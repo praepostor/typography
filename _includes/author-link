@@ -1,3 +1,0 @@
-{% assign _author = nil %}{% capture _author %}
-<link rel="author" href="{% include urified value = include.author.site %}">
-{% endcapture %}{{ _author | strip_newlines }}{% assign _author = nil %}

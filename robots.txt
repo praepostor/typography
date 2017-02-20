@@ -1,9 +1,4 @@
----
-layout: null
----
-{% capture cache %}
-  {% capture url %}{{ site.url }}{{ site.baseurl }}{% endcapture %}
-{% endcapture %}{% assign cache = nil %}User-agent: *
-Disallow: {{ '/css/' | prepend: site.baseurl | uri_escape | xml_escape }}
-Disallow: {{ '/js/' | prepend: site.baseurl | uri_escape | xml_escape }}
-Sitemap: {{ '/sitemap.xml' | prepend: url | uri_escape | xml_escape }}
+User-agent: *
+Disallow: https://praepostor.github.io/typography/css/
+Disallow: https://praepostor.github.io/typography/js/
+Sitemap: https://praepostor.github.io/typography/sitemap.xml

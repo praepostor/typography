@@ -1,3 +1,0 @@
-{% assign _urn = nil %}{% capture _urn %}
-{{ page.url | remove: 'index.html' }}
-{% endcapture %}{% include urified value = _urn %}{% assign _urn = nil %}
